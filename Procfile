@@ -1,2 +1,2 @@
-worker: "bot - Бот.exe"
-workerd: "bot - ДвухЭтапка.exe"
+worker: python "bot_bot.py"
+workerd: python "bot_m2a.py"
