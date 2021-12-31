@@ -4,3 +4,4 @@ requests==2.25.1
 async-timeout==3.0.1
 discord-components==2.1.2
 dislash.py==1.4.8
+multitanking==0.0.9
