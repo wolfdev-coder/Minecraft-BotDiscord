@@ -1,0 +1,6 @@
+discord.py==1.7.3
+mcrcon==0.7.0
+requests==2.25.1
+async-timeout==3.0.1
+discord-components==2.1.2
+dislash==1.4.8
