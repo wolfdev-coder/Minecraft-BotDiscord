@@ -45,11 +45,10 @@ async def command(ctx, *, command = None):
     if command is None:
         await ctx.send(embed = discord.Embed(description = f'**{ctx.author.mention}, укажите команду**'))
     else:
-        try:
-            p = mcr.command(f'{command}')
-            await ctx.send(embed = discord.Embed(description = f'**{p}**'))
-        except:
-            await ctx.send('Сервер **выключен**!')
+        mcr = MCRcon("217.106.107.160", "123", port = 30570)
+        mcr.connect()
+        p = mcr.command(f'{command}')
+        await ctx.send(embed = discord.Embed(description = f'**{p}**'))
 
 def get_log():
     requ = requests.Session()
