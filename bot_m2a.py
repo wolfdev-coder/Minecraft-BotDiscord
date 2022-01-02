@@ -21,14 +21,6 @@ cursor = connection.cursor()
 @client.event
 async def on_ready():
     print('Бот запущен')
-    DiscordComponents(client)
-    cursor.execute( """CREATE TABLE IF NOT EXISTS users (
-        name TEXT,
-        id INT,
-        m2a INT,
-        pass INT
-    )""")
-    connection.commit()
     client.loop.create_task(m2a())
 
 async def m2a():
