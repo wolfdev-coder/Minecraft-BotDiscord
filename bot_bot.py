@@ -142,7 +142,7 @@ async def аккаунт(ctx):
                     mcr.command(f'gm 0 {cursor.execute("SELECT name FROM users WHERE id = {}".format(ctx.author.id)).fetchone()[0]}')
 
 @client.command()
-async def m2a():
+async def m2a(ctx):
     while True:
         for row in cursor.execute("SELECT name, id, m2a, pass FROM users").fetchall():
             if int(row[2]) == 1:
