@@ -7,11 +7,7 @@ import requests
 import random
 import asyncio
 import sqlite3
-from discord_components import DiscordComponents, Button, ButtonStyle, Select, SelectOption, ActionRow
-import discord_components
-import dislash
-from dislash import InteractionClient, ContextMenuInteraction
-import multitasking
+
 
 mcr = MCRcon("217.106.107.160", "123", port = 30570)
 mcr.connect()
@@ -33,7 +29,7 @@ async def on_ready():
         pass INT
     )""")
     connection.commit()
-    await m2a()
+    client.loop.create_task(m2a())
 
 async def m2a():
     while True:
