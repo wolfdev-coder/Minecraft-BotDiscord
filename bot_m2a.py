@@ -40,6 +40,7 @@ async def m2a():
         for row in cursor.execute("SELECT name, id, m2a, pass FROM users").fetchall():
             if int(row[2]) == 1:
                 list_p = mcr.command('cmi list')
+                print(f'{row[0]} нету  в {list_p}')
                 if str(row[0]) in list_p:
                     if str(row[3]) == '1':
                         pass
