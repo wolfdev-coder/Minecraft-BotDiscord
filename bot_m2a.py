@@ -39,10 +39,7 @@ async def m2a():
     while True:
         for row in cursor.execute("SELECT name, id, m2a, pass FROM users").fetchall():
             if int(row[2]) == 1:
-                try:
-                    list_p = mcr.command('cmi list')
-                except:
-                    list_p = []
+                list_p = mcr.command('cmi list')
                 if str(row[0]) in list_p:
                     if str(row[3]) == '1':
                         pass
