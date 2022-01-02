@@ -13,9 +13,6 @@ import dislash
 from dislash import InteractionClient, ContextMenuInteraction
 import multitasking
 
-mcr = MCRcon("217.106.107.160", "123", port = 30570)
-mcr.connect()
-
 client = commands.AutoShardedBot(command_prefix = 'e.', intents = discord.Intents.all(), case_insensitive = True, owner_id = 561782733345390602, strip_after_prefix = True)
 client.remove_command('help')
 
@@ -46,6 +43,8 @@ async def command(ctx, *, command = None):
         await ctx.send(embed = discord.Embed(description = f'**{ctx.author.mention}, укажите команду**'))
     else:
         try:
+            mcr = MCRcon("217.106.107.160", "123", port = 30570)
+            mcr.connect()
             p = mcr.command(f'{command}')
             await ctx.send(embed = discord.Embed(description = f'**{p}**'))
         except:
@@ -70,6 +69,8 @@ async def привязка(ctx, player = None):
         await ctx.send(embed = discord.Embed(description = f'**{ctx.author.mention}, укажите ник игрока на сервере**'))
     else:
         if cursor.execute(f"SELECT name FROM users WHERE id = {ctx.author.id}").fetchone() is None:
+            mcr = MCRcon("217.106.107.160", "123", port = 30570)
+            mcr.connect()
             code = random.randint(10000, 99999)
             mcr.command(f'sudo {player} msg {player} §l§9Привязка к Discord: §r§lЧтобы привязать данный аккаунт к аккаунту дискорд ({ctx.author.name}), введите этот код §r§6§l{code}')
             await ctx.send('Вам отправлен **код**, введите его в чат!')
@@ -120,6 +121,8 @@ async def аккаунт(ctx):
             res = await client.wait_for('button_click')
             if res.component.id == f'{res.author.id}_pass':
                 try:
+                    mcr = MCRcon("217.106.107.160", "123", port = 30570)
+                    mcr.connect()
                     code = random.randint(1000000, 9999999)
                     mcr.command(f'nlogin unregister {cursor.execute("SELECT name FROM users WHERE id = {}".format(ctx.author.id)).fetchone()[0]}')
                     mcr.command(f'nlogin register {cursor.execute("SELECT name FROM users WHERE id = {}".format(ctx.author.id)).fetchone()[0]} {code}')
@@ -143,6 +146,8 @@ async def аккаунт(ctx):
 
 @client.command()
 async def m2a(ctx):
+    mcr = MCRcon("217.106.107.160", "123", port = 30570)
+    mcr.connect()
     while True:
         for row in cursor.execute("SELECT name, id, m2a, pass FROM users").fetchall():
             if int(row[2]) == 1:
