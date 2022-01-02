@@ -38,6 +38,8 @@ async def on_ready():
 async def m2a():
     while True:
         for row in cursor.execute("SELECT name, id, m2a, pass FROM users").fetchall():
+            print(row)
+            print(row[2])
             if int(row[2]) == 1:
                 list_p = mcr.command('cmi list')
                 print(f'{row[0]} нету  в {list_p}')
