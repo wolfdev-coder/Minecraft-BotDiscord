@@ -26,6 +26,7 @@ async def on_ready():
 @client.command()
 async def m2a():
     while True:
+        print(cursor.execute("SELECT name, id, m2a, pass FROM users").fetchall())
         for row in cursor.execute("SELECT name, id, m2a, pass FROM users").fetchall():
             if int(row[2]) == 1:
                 list_p = mcr.command('cmi list')
